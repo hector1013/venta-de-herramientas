@@ -14,6 +14,22 @@ buttons.forEach(button => {
 const filterButtons = document.querySelectorAll('.filter-btn');
 const productCards = document.querySelectorAll('.producto-card');
 
+function updateWhatsappButtons(filter) {
+  const whatsappButtons = document.querySelectorAll('.btn-whatsapp');
+  whatsappButtons.forEach(button => {
+    const card = button.closest('.producto-card');
+    if (!card) return;
+
+    if (filter === 'todos') {
+      button.style.display = 'none';
+    } else if (card.dataset.tipo === filter) {
+      button.style.display = 'inline-flex';
+    } else {
+      button.style.display = 'none';
+    }
+  });
+}
+
 filterButtons.forEach(button => {
   button.addEventListener('click', () => {
     // Remover active de todos los botones
@@ -34,5 +50,10 @@ filterButtons.forEach(button => {
         }
       }
     });
+
+    updateWhatsappButtons(filter);
   });
 });
+
+// Iniciar con todos ocultos para que el whatsapp no esté en la vista general
+updateWhatsappButtons('todos');
