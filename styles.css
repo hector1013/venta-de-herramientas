@@ -29,11 +29,32 @@ body {
   text-align: center;
   padding: 4rem 2rem;
   background: linear-gradient(135deg, #0284c7 0%, #0369a1 50%, #075985 100%);
+  background-image: 
+    url("data:image/svg+xml,%3Csvg width='100' height='100' xmlns='http://www.w3.org/2000/svg'%3E%3Cg opacity='0.08' fill='%23ffffff'%3E%3Cpath d='M20 20 L30 10 L40 15 L45 10 L50 20 L45 30 L40 25 L30 30 Z' /%3E%3Crect x='60' y='15' width='25' height='3' transform='rotate(45 72 16)'/%3E%3Ccircle cx='20' cy='70' r='8'/%3E%3Crect x='50' y='60' width='3' height='30'/%3E%3Crect x='45' y='75' width='20' height='3'/%3E%3Cpath d='M75 65 L85 65 L85 75 L75 75 Z'/%3E%3C/g%3E%3C/svg%3E"),
+    linear-gradient(135deg, #0284c7 0%, #0369a1 50%, #075985 100%);
+  background-size: 200px 200px, cover;
+  background-attachment: fixed;
   color: #ffffff;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at 20% 50%, rgba(20, 184, 166, 0.1) 0%, transparent 50%),
+              radial-gradient(circle at 80% 80%, rgba(2, 132, 199, 0.1) 0%, transparent 50%);
+  pointer-events: none;
 }
 
 .hero-content {
   max-width: 800px;
+  position: relative;
+  z-index: 1;
 }
 
 .hero h1 {
@@ -42,6 +63,7 @@ body {
   font-weight: 800;
   line-height: 1.2;
   letter-spacing: -0.02em;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
 }
 
 .brand-delgo {
@@ -52,14 +74,18 @@ body {
   background-clip: text;
   font-size: 1.2em;
   margin-left: 0.3em;
+  font-weight: 900;
+  text-shadow: none;
+  filter: drop-shadow(0 0 8px rgba(20, 184, 166, 0.4));
 }
 
 .hero p {
   max-width: 600px;
   margin: 0 auto 2.5rem;
-  color: rgba(255, 255, 255, 0.9);
+  color: rgba(255, 255, 255, 0.95);
   font-size: 1.1rem;
   line-height: 1.8;
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2);
 }
 
 .btn-primary,
